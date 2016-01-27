@@ -23,3 +23,9 @@ function updateTime(){
     if(T.running === false){ T.elapsed = T.stopTime - T.startTime; }
     else { T.elapsed = caltime() - T.startTime; }
 }
+function reset(){
+    T.startTime  = 0;
+    T.stopTime   = 0;
+    T.running    = false;
+    T.elapsed    = 0;
+}

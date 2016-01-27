@@ -23,8 +23,19 @@ test( "T.elapsed should increase after start() and updateTime()", function( asse
 });
 
 test("reset should change T.running to false, and T.startTime and T.stopTime to 0", function(){
-    T2 = {running: true, stopTime: 100, startTime: 2902};
-    reset(T2);
-    T3 = {running: false, stopTime: 0, startTime: 0};
-    deepEqual(T2, T3, "Reset sets all variables to original state");
+    reset(T);
+    T3 = {
+        startTime   :  0,
+        stopTime    :  0,                         // watch out when adding stop-go function
+        running     : false,
+        elapsed     :  0
+    };
+    deepEqual(T, T3, "Reset sets all variables to original state");
+});
+
+test("elapsed time should be accessed in terms of hours, minutes, seconds, centiseconds",function(){
+    ok(T.hours      !== undefined,"T object should have hours");
+    ok(T.minutes    !== undefined,"T object should have minutes");
+    ok(T.seconds    !== undefined,"T object should have seconds");
+    ok(T.cSeconds   !== undefined,"T object should have centiseconds");
 });
