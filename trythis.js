@@ -1,51 +1,32 @@
+var T = {
+        startTime   :  0,
+        stopTime    :  0,                         // watch out when adding stop-go function
+        running     : false
+};
 
+function caltime(){
+    return Math.floor(Date.now()/100);
+}
 
+function start(){
+    T.running = true;
+    T.startTime = caltime();
+}
 
-var T = function(){
-    var startTime   =  0,
-        stopTime    =  0,                         // watch out when adding stop-go function
-        running     = false,
-        caltime     = (function(){
-            return Math.floor(Date.now()/100);
-            console.log("testing");
-        })();
+function stop(){
+    T.running = false;
+    T.stopTime = caltime();
+}
 
-        var start = function(){
-                running     = true;
-                startTime   = caltime;
-            }
-            stop = function(){
-                running = false;
-                stopTime = caltime;
-            },
-            timeElapsed = function(){
-                if(running === false) { return stopTime - startTime;} //modify when adding stop-go function
-                else                  { return startTime - caltime;}
-            };
+function elapsedTime(stop, start){
+    if(T.running === false){ return stop - start; }
+    else { return caltime() - start; }
+}
 
-    return {
-        startTime:      startTime,
-        stopTime:       stopTime,
-        running:        running,
-        caltime:        caltime,
-        start:          start,
-        stop:           stop,
-        timeElapsed:    timeElapsed
-    };
-
-} ;
-
-T.start();
-
-console.log(T.running);
-console.log(T.startTime);
-console.log(T.stopTime);
-
-T.stop();
-console.log(T.running);
-console.log(T.stopTime);
-console.log("elapsed times");
-console.log(T.timeElapsed);
-T.running = true;
-console.log(T.timeElapsed);
-console.log(T.timeElapsed);
+console.log("START",T.startTime);
+console.log("ELAPSED",elapsedTime());
+start();
+console.log("START",T.startTime);
+console.log("CALTIME",caltime());
+console.log("RUNNING", T.running);
+setInterval(console.log("ELAPSED",elapsedTime(),"CALTIME",caltime()), 2000);
