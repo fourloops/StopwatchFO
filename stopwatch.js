@@ -1,7 +1,8 @@
 var T = {
         startTime   :  0,
         stopTime    :  0,                         // watch out when adding stop-go function
-        running     : false
+        running     : false,
+        elapsed     :  0
 };
 
 function caltime(){
@@ -18,7 +19,7 @@ function stop(){
     T.stopTime = caltime();
 }
 
-function elapsedTime(stop, start){
-    if(T.running === false){ return stop - start; }
-    else { return caltime() - start; }
+function updateTime(){
+    if(T.running === false){ T.elapsed = T.stopTime - T.startTime; }
+    else { T.elapsed = caltime() - T.startTime; }
 }
