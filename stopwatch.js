@@ -1,13 +1,36 @@
-var T = {
-    timeElapsed: 0,
+var T = (function(){
+    var startTime =  0,
+        stopTime  =  0,                         // watch out when adding stop-go function
+        running = false,
+        caltime = (function(){
+            return Math.floor(Date.now()/100);
+        }() ),
+        start     =  function(){
+            running = true;
+            startTime = caltime;
+        },
+        stop      = function(){
+            running = false;
+            stopTime = caltime;
+        },
+        timeElapsed = (function(){
+            if(running === false) return stopTime - startTime; //modify when adding stop-go function
+            else {
+                return startTime - caltime;
+            }
+        }() );
 
-    caltime : function(){
-        return Math.floor(Date.now()/100);
+    return {
+        startTime:      startTime,
+        stopTime:       stopTime,
+        running:        running,
+        caltime:        caltime,
+        start:          start,
+        stop:           stop,
+        timeElapsed:    timeElapsed,
     }
 
-
-
-};
+}() );
 //
 // function displayTime(){
 //     var hours = document.getElementById('hours'),
