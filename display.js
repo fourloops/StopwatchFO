@@ -3,7 +3,9 @@ var blackboard = document.getElementById('blackboard');
 document.getElementById('start').addEventListener('click', start);
 document.getElementById('stop').addEventListener('click', function(){
     stop();
-    document.getElementById('start').innerHTML = 'RESUME';
+    if(T.totElapsed>0){
+        document.getElementById('start').innerHTML = 'RESUME';
+    }
 });
 document.getElementById('reset').addEventListener('click', function(){
     reset();

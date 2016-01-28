@@ -16,8 +16,10 @@ function caltime(){
 }
 
 function start(){
-    T.running = true;
-    T.startTime = caltime();
+    if(!T.running){
+        T.running = true;
+        T.startTime = caltime();
+    }
 }
 
 function stop(){
