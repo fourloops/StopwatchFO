@@ -41,8 +41,7 @@ function reset(){
     T.seconds    = 0;
     T.cSeconds   = 0;
 }
-
-document.getElementById('start').addEventListener('click', start);
+/*document.getElementById('start').addEventListener('click', start);
 document.getElementById('stop').addEventListener('click', stop);
 document.getElementById('reset').addEventListener('click', reset);
 
@@ -55,3 +54,4 @@ setInterval(function(){
         document.getElementById('seconds').innerHTML = T.seconds ? T.seconds : '';
         document.getElementById('cSeconds').innerHTML = T.cSeconds ? T.cSeconds : '';
 }, 10 );
+*/

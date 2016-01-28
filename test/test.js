@@ -1,9 +1,10 @@
 test( "T.elapsed should be Zero before we start the Timer", function() {
-  equal( T.elapsed, 0, 'Message: timer is zero at start' );
+    reset();
+    equal( T.elapsed, 0, 'Message: timer is zero at start' );
 });
 
 test("caltime should return the current calendar time in centiseconds",function(){
-    equal(caltime(), Math.floor( Date.now() / 100 ),"Calendar time in cs should be returned");
+    equal(caltime(), Math.floor( Date.now() / 10 ),"Calendar time in cs should be returned");
 });
 
 test("T.running should be false at start", function(){
@@ -49,7 +50,7 @@ test( "T.elapsed should equal the timeOut", function( assert ) {
     start();
     setTimeout(function() {
         updateTime();
-        assert.equal( T.elapsed, 11, "T.elapsed is greater than 0" );
+        assert.equal( Math.floor(T.elapsed/10), 11, "T.elapsed is greater than 0" );
         done1();
     }, 1100 );
 });
