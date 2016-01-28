@@ -8,7 +8,8 @@ var T = {
         minutes     :  0,
         seconds     :  0,
         cSeconds    :  0
-};
+    },
+    lapObj = { };
 
 function caltime(){
     return Math.floor(Date.now()/10);
@@ -42,4 +43,30 @@ function reset(){
     T.minutes    = 0;
     T.seconds    = 0;
     T.cSeconds   = 0;
+    lapObj       = {};
+}
+
+function numLaps (){
+    return Object.keys(lapObj).length;
+}
+
+function lapX(){
+    var key  = "l" + ( numLaps()+1 ),
+        subtractFrom = 0;
+    for(lap in lapObj){
+        subtractFrom += lapObj[lap].lapTime || 0;
+    }
+    var tlap  = T.totElapsed + T.elapsed - subtractFrom,
+        tlapH = Math.floor( tlap / 360000),
+        tlapM = Math.floor( ( tlap - tlapH * 360000 ) / 6000),
+        tlapS = Math.floor( ( tlap - tlapM * 6000 - tlapH * 360000 ) / 100 ),
+        tlapC = tlap - tlapS * 100 - tlapM * 6000 - tlapH * 360000;
+
+    lapObj[key] = {
+        lapTime : tlap,
+        hours   : tlapH,
+        minutes : tlapM,
+        seconds : tlapS,
+        cSeconds: tlapC
+    };
 }
