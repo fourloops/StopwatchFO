@@ -65,12 +65,17 @@ td {
     width: 25%;
     height: 50%;
     background-color: #DDDDDD;
+    color: #DDDDDD;
 }
 td:first-child {
     border-radius: 80% 0 0 80%;
 }
 td:last-child {
     border-radius: 0 80% 80% 0;
+}
+
+.blackText {
+    color: black;
 }
 
 /*---- STYLING THE LAP-TIMES CONTAINER -----*/

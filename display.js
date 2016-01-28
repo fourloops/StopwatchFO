@@ -30,8 +30,27 @@ document.getElementById('lap').addEventListener('click', function(){
 
 setInterval(function(){
         if(T.running){ updateTime(); }
-        document.getElementById('hours').innerHTML = T.hours ? T.hours : '';
-        document.getElementById('minutes').innerHTML = T.minutes ? T.minutes : '';
-        document.getElementById('seconds').innerHTML = T.seconds ? T.seconds : '';
-        document.getElementById('cSeconds').innerHTML = T.cSeconds ? T.cSeconds : '';
+        var     hours   = document.getElementById('hours'),
+                minutes = document.getElementById('minutes'),
+                seconds = document.getElementById('seconds'),
+                cSeconds= document.getElementById('cSeconds');
+
+        hours.innerHTML = (T.hours < 10 ? '0' : '') + T.hours;
+        minutes.innerHTML = (T.minutes < 10 ? '0' : '') + T.minutes;
+        seconds.innerHTML = (T.seconds < 10 ? '0' : '') + T.seconds;
+        cSeconds.innerHTML = (T.cSeconds < 10 ? '0' : '') + T.cSeconds;
+
+        function addClass(Tobj, elem){
+            if(Tobj > 0){
+                elem.classList.add("blackText");
+            } else if(elem.previousSibling.innerHTML == '00') {
+                elem.classList.remove("blackText");
+            }
+        }
+
+        addClass(T.hours, hours);
+        addClass(T.minutes, minutes);
+        addClass(T.seconds, seconds);
+        addClass(T.cSeconds, cSeconds);
+
 }, 10 );
