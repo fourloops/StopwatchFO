@@ -98,3 +98,24 @@ test("T.totElapsed should increase after pressing start and stop again (without 
         done4();
     },100);
 });
+
+test("lap function should create new lap object", function(){
+    lap();
+    ok(lapObj.l1, 'lapObj has been created');
+});
+
+test("lap object should record correct time from start",function(assert){
+    var done5 = assert.async();
+    start();
+    setTimeout(function(){
+        updateTime();
+        lap();
+        assert.ok( (lapObj.l1.elapsed - 500) < 10, "totElapsed has increased" );
+        done5();
+    },500);
+});
+
+test("reset() should remove all laps created in the lapObj", function(){
+    reset();
+    deepEqual(lapObj, {}, 'lapObj has been reset to empty object by reset()');
+});
