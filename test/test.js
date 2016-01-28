@@ -46,12 +46,12 @@ test("elapsed time should be accessed in terms of hours, minutes, seconds, centi
 
 test( "T.elapsed should equal the timeOut", function( assert ) {
     reset();
-    var done1 = assert.async();
+    var done2 = assert.async();
     start();
     setTimeout(function() {
         updateTime();
-        assert.equal( Math.floor(T.elapsed/10), 11, "T.elapsed is greater than 0" );
-        done1();
+        assert.equal( Math.floor(T.elapsed/10), 11, "T.elapsed is equal to the timeOut within 10cSecs" );
+        done2();
     }, 1100 );
 });
 
@@ -65,4 +65,32 @@ test( "Hours,  minutes, seconds, cSeconds should change with updateTime()", func
     assert.equal( T.seconds, 1, "T.seconds is correct" );
     assert.equal( T.cSeconds, 7, "T.cSeconds is correct" );
     reset();
+});
+
+test("T.object should have a totElapsed value of 0 at the start",function(){
+    reset();
+    equal(T.totElapsed,0,"T.totElapsed is 0 at the start");
+});
+test("T.totElapsed should be greater than 0 after starting and stopping",function(){
+    reset();
+    var done3 = assert.async();
+    start();
+    setTimeout(function(){
+        stop();
+        updateTime();
+        assert.ok( T.totElapsed > 0, "T.totElapsed is greater than 0" );
+        var elapsedTest1 = T.totElapsed;
+        done3();
+    },100);
+});
+test("T.totElapsed should increase after pressing start and stop again (without restarting)",function(){
+    var done4 = assert.async();
+    start();
+    setTimeout(function(){
+        stop();
+        updateTime();
+        var elapsedTest2 = T.totElapsed;
+        assert.ok( elapsedTest2 > elapsedTest1, "totElapsed has increased" );
+        done4();
+    },100);
 });
