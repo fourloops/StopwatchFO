@@ -3,6 +3,7 @@ var T = {
         stopTime    :  0,                         // watch out when adding stop-go function
         running     : false,
         elapsed     :  0,
+        totElapsed  :  0,
         hours       :  0,
         minutes     :  0,
         seconds     :  0,
@@ -21,21 +22,22 @@ function start(){
 function stop(){
     T.running = false;
     T.stopTime = caltime();
+    T.totElapsed += T.elapsed;
 }
 
 function updateTime(){
-    if(T.running === false){ T.elapsed = T.stopTime - T.startTime; }
-    else { T.elapsed = caltime() - T.startTime; }
-    T.hours = Math.floor(T.elapsed/360000);
-    T.minutes = Math.floor((T.elapsed - T.hours*360000)/6000);
-    T.seconds = Math.floor((T.elapsed - T.minutes*6000 - T.hours*360000)/100);
-    T.cSeconds = (T.elapsed - T.seconds*100 - T.minutes*6000 - T.hours*360000);
+    T.elapsed = caltime() - T.startTime;
+    T.hours = Math.floor((T.totElapsed + T.elapsed)/360000);
+    T.minutes = Math.floor((T.totElapsed + T.elapsed - T.hours*360000)/6000);
+    T.seconds = Math.floor((T.totElapsed + T.elapsed - T.minutes*6000 - T.hours*360000)/100);
+    T.cSeconds = (T.totElapsed + T.elapsed - T.seconds*100 - T.minutes*6000 - T.hours*360000);
 }
 function reset(){
     T.startTime  = 0;
     T.stopTime   = 0;
     T.running    = false;
     T.elapsed    = 0;
+    T.totElapsed = 0;
     T.hours      = 0;
     T.minutes    = 0;
     T.seconds    = 0;

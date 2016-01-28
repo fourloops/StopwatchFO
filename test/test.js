@@ -28,6 +28,7 @@ test("reset should change T.running to false, and T.startTime and T.stopTime to 
             stopTime    :  0,                         // watch out when adding stop-go function
             running     : false,
             elapsed     :  0,
+            totElapsed  :  0,
             hours       :  0,
             minutes     :  0,
             seconds     :  0,
@@ -71,24 +72,27 @@ test("T.object should have a totElapsed value of 0 at the start",function(){
     reset();
     equal(T.totElapsed,0,"T.totElapsed is 0 at the start");
 });
-test("T.totElapsed should be greater than 0 after starting and stopping",function(){
+
+test("T.totElapsed should be greater than 0 after starting and stopping",function(assert){
     reset();
     var done3 = assert.async();
     start();
     setTimeout(function(){
-        stop();
         updateTime();
+        stop();
         assert.ok( T.totElapsed > 0, "T.totElapsed is greater than 0" );
-        var elapsedTest1 = T.totElapsed;
         done3();
     },100);
 });
-test("T.totElapsed should increase after pressing start and stop again (without restarting)",function(){
+
+var elapsedTest1 = T.totElapsed;
+
+test("T.totElapsed should increase after pressing start and stop again (without restarting)",function(assert){
     var done4 = assert.async();
     start();
     setTimeout(function(){
-        stop();
         updateTime();
+        stop();
         var elapsedTest2 = T.totElapsed;
         assert.ok( elapsedTest2 > elapsedTest1, "totElapsed has increased" );
         done4();
