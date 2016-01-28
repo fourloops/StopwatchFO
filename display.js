@@ -27,7 +27,6 @@ document.getElementById('lap').addEventListener('click', function(){
     }
 });
 
-
 setInterval(function(){
         if(T.running){ updateTime(); }
         var     hours   = document.getElementById('hours'),
@@ -43,7 +42,8 @@ setInterval(function(){
         function addClass(Tobj, elem){
             if(Tobj > 0){
                 elem.classList.add("blackText");
-            } else if(elem.previousSibling.innerHTML == '00') {
+            }
+            else if( T.cSeconds === 0 || elem.previousSibling.innerHTML == '00') {
                 elem.classList.remove("blackText");
             }
         }
@@ -52,5 +52,6 @@ setInterval(function(){
         addClass(T.minutes, minutes);
         addClass(T.seconds, seconds);
         addClass(T.cSeconds, cSeconds);
+        console.log('running');
 
 }, 10 );
