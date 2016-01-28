@@ -9,6 +9,11 @@ document.getElementById('reset').addEventListener('click', function(){
     reset();
     document.getElementById('start').innerHTML = 'START';
     blackboard.innerHTML = "";
+    document.getElementById('hours').classList.remove('blackText');
+    document.getElementById('minutes').classList.remove('blackText');
+    document.getElementById('seconds').classList.remove('blackText');
+    document.getElementById('cSeconds').classList.remove('blackText');
+
 });
 document.getElementById('lap').addEventListener('click', function(){
     if(T.running){
@@ -40,11 +45,12 @@ setInterval(function(){
         cSeconds.innerHTML = (T.cSeconds < 10 ? '0' : '') + T.cSeconds;
 
         function addClass(Tobj, elem){
-            if(Tobj > 0){
+            if (Tobj > 0){
                 elem.classList.add("blackText");
-            }
-            else if( T.cSeconds === 0 || elem.previousSibling.innerHTML == '00') {
+            } else if (elem.previousSibling.innerHTML == '00') {
                 elem.classList.remove("blackText");
+            // } else if (T.cSeconds === 0) {
+            //     elem.classList.remove("blackText");
             }
         }
 
