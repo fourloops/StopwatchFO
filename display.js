@@ -19,13 +19,13 @@ document.getElementById('lap').addEventListener('click', function(){
     if(T.running){
         lapX();
         var latestLap = lapObj[ "l" + numLaps() ],
-            lapNode     = document.createElement("div"),
+            lapNode     = document.createElement("p"),
             hours       = ( latestLap.hours <10  ? "0":"" ) + latestLap.hours,
             minutes     = ( latestLap.minutes <10  ? "0":"" ) + latestLap.minutes,
             seconds     = ( latestLap.seconds <10  ? "0":"" ) + latestLap.seconds,
             cSeconds    = ( latestLap.cSeconds <10  ? "0":"" ) + latestLap.cSeconds,
-            lapString   = ""+hours+":"+minutes+":"+seconds+":"+cSeconds;
-        lapNode.innerHTML = "<p>"+lapString+"</p>";
+            lapString   = ""+hours+":"+minutes+":"+seconds+":"+cSeconds+" (#"+numLaps()+")";
+        lapNode.innerHTML = lapString;
         lapNode.className = "lap";
         blackboard.appendChild(lapNode);
         blackboard.scrollTop = blackboard.scrollHeight;

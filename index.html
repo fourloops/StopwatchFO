@@ -4,30 +4,31 @@
         <meta charset="utf-8">
         <title>STOPWATCH - OWEN & FRANZ - MASTERPIECE OR TOTAL FAILURE??</title>
         <link rel="stylesheet" href="style.css" media="screen">
+        <link href='https://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <h1>THE STOPWATCH APP</h1>
-        <section id="stopwatch">
-            <div id="display">
-                <table>
-                    <tr>
-                        <td id='hours'></td>
-                        <td id='minutes'></td>
-                        <td id='seconds'></td>
-                        <td id='cSeconds'></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="bracelet left"></div>
-            <div class="bracelet right"></div>
-            <button id='start'>START</button>
-            <button id='stop'>STOP</button>
-            <button id='reset'>RESET</button>
-            <button id='lap'>LAP</button>
-        </section>
-        <section id="blackboard">
+        <div class="wrapper">
+            <section id="stopwatch">
+                <div id="display">
+                    <table>
+                        <tr id="time">
+                            <td id='hours'></td>
+                            <td id='minutes'></td>
+                            <td id='seconds'></td>
+                            <td id='cSeconds'></td>
+                        </tr>
+                        <tr id="buttons">
+                            <td><button id='start'>START</button></td>
+                            <td><button id='stop'>STOP</button></td>
+                            <td><button id='reset'>RESET</button></td>
+                            <td><button id='lap'>LAP</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <section id="blackboard"></section>
 
-        </section>
+        </div>
         <script type="text/javascript" src="stopwatch.js"></script>
         <script type="text/javascript" src="display.js"></script>
     </body>

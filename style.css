@@ -1,78 +1,87 @@
-body{
+body *{
     perspective: 1000px;
 }
-iframe {
-    width:75%;
-    height: 500px;
-    margin: 20px auto;
+body {
+
+    background-image: url(assets/track2.jpg) ;
+}
+
+/*---- STYLING THE STOPWATCH QUADRANT -----*/
+#stopwatch {
+    margin-top:10%;
+    height: 100%;
+    width: 50%;
+    float: left;
+    margin-left: -1%;
 }
 #display {
-    margin: 60px auto;
     background-color: #D4AF37;
-    width: 50%;
-    border: 4px solid grey;
+    width: 100%;
+    border: 10px solid grey;
     font-size: 5em;
     text-align: center;
     border-radius: 25%;
     transform: rotateY(-15deg) rotateX(10deg) rotateZ(10deg) ;
     z-index: 2;
 }
-.bracelet {
-    position:absolute;
-    border: 1px solid black;
-    z-index: -1;
-}
-.left {
-    top: 75px;
-    left:35%;
-    height: 90%;
-    width:  50%;
-    border-radius: 50% 45% 50% 45%;
-    transform: rotateY(-10deg) rotateX(10deg) rotateZ(120deg) ;
-    background-color: #592925;
 
-}
-.right {
-    top: 110px;
-    left:57%;
-    height: 85%;
-    width:  20%;
-    border-radius:45% 45% 45% 45%;
-    transform: rotateY(-10deg) rotateX(10deg) rotateZ(25deg) ;
-    background-color: white;
-    border: 2px solid black;
-}
-
-h1 {
-
-}
-
-/*---- STYLING THE STOPWATCH QUADRANT -----*/
-#stopwatch {
-    height: 100%;
-    width: 100%;
-}
 table {
     margin: 50px auto;
     width: 85%;
     height: 300px;
+}
+
+@font-face {
+    font-family: digital-7;
+    src: url(assets/digital-7/digital-7-mono.ttf);
+}
+
+#time {
+    height: 75%;
     background-color: #9a9a9a;
     border-radius: 15%;
-
+    font-family: digital-7,monospace;
+    font-size: 1.2em;
+    line-height: 1.2em;
 }
+
+#cSeconds {
+    font-size: 0.66em;
+}
+
+#time td {
+    background-color: #DDDDDD;
+    border: 1px solid black;
+}
+
+#time td:first-child {
+    border-radius: 80% 0 0 80%;
+}
+#time td:last-child {
+    border-radius: 0 80% 80% 0;
+}
+
+#buttons {
+    height: 25%;
+    font-family: 'Droid Sans Mono', monospace ;
+}
+
+button {
+    width: 100%;
+    height: 75%;
+    margin: 25% 0 25% 0;
+    border-radius: 20%;
+    font-size: 0.25em;
+    background-color: black;
+    color: white;
+}
+
 td {
     padding: 0 20px;
     width: 25%;
-    height: 50%;
-    background-color: #DDDDDD;
     color: #DDDDDD;
 }
-td:first-child {
-    border-radius: 80% 0 0 80%;
-}
-td:last-child {
-    border-radius: 0 80% 80% 0;
-}
+
 
 .blackText {
     color: black;
@@ -82,16 +91,32 @@ td:last-child {
 
 
 #blackboard {
-    height: 20vh;
-    width: 20%;
-    overflow: auto;
+    box-sizing: border-box;
+    height: 60vh;
+    width: 45%;
+    margin-top:10%;
+    display:inline;
+    float:right;
+    overflow-x: hidden;
+    overflow-y: auto;
+    float:right;
     background-color: black;
-    color: white;
+    color: grey;
     z-index:4;
     font-size:50px;
+    border: 20px solid #9C5F3A;
+    line-height: 1em;
+    font-family: 'Droid Sans Mono', monospace ;
+}
+
+p:last-child {
+    color: white;
+    font-weight: bold;
 }
 
 .lap {
-    width: 90%;
-    background-color: grey;
+    width: 98%;
+    margin-left: 2%;
+    height: 10%;
+    font-size: 0.95em;
 }

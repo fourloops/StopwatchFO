@@ -21,9 +21,11 @@ function start(){
 }
 
 function stop(){
-    T.running = false;
-    T.stopTime = caltime();
-    T.totElapsed += T.elapsed;
+    if(T.running){
+        T.running = false;
+        T.stopTime = caltime();
+        T.totElapsed += T.elapsed;
+    }
 }
 
 function updateTime(){
