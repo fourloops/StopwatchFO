@@ -62,7 +62,7 @@ function numLaps (){
 }
 
 // Calculates current lap and puts it in correct format in lap object.
-function lapX(){
+function lap(){
     var key  = "l" + ( numLaps()+1 ),
         subtractFrom = 0;
     for(var prop in lapObj){
