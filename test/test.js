@@ -100,7 +100,7 @@ test("T.totElapsed should increase after pressing start and stop again (without 
 });
 
 test("lap function should create new lap object", function(){
-    lapX();
+    lap();
     ok(lapObj.l1, 'lapObj.l1 has been created');
 });
 
@@ -110,7 +110,7 @@ test("lap object should record correct time from start",function(assert){
     start();
     setTimeout(function(){
         updateTime();
-        lapX();
+        lap();
         assert.equal( lapObj.l1.lapTime, 50, "l1.lapTime is correct" );
         done5();
     },500);
@@ -120,7 +120,7 @@ test("lap object should record a new lap with correct time from start",function(
     var done6 = assert.async();
     setTimeout(function(){
         updateTime();
-        lapX();
+        lap();
         assert.ok( (lapObj.l2.lapTime - 500) < 10, "l2.lapTime is correct" );
         done6();
     },500);
