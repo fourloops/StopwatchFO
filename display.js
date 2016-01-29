@@ -11,6 +11,11 @@ document.getElementById('reset').addEventListener('click', function(){
     reset();
     document.getElementById('start').innerHTML = 'START';
     blackboard.innerHTML = "";
+    var lapsPara = document.createElement("p");
+    lapsPara.innerHTML = 'LAPS:';
+    lapsPara.className = 'lap';
+    lapsPara.id = 'lapsText';
+    blackboard.appendChild(lapsPara);
     document.getElementById('hours').classList.remove('blackText');
     document.getElementById('minutes').classList.remove('blackText');
     document.getElementById('seconds').classList.remove('blackText');
