@@ -111,7 +111,7 @@ test("lap object should record correct time from start",function(assert){
     setTimeout(function(){
         updateTime();
         lap();
-        assert.equal( lapObj.l1.lapTime, 50, "l1.lapTime is correct" );
+        assert.equal( Math.floor(lapObj.l1.lapTime/10)*10, 50, "l1.lapTime is correct" );
         done5();
     },500);
 });
