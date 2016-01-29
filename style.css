@@ -2,7 +2,7 @@ body *{
     perspective: 70vw;
 }
 body {
-
+    background-color: black;
     background: url(assets/track2.jpg) ;
 }
 
