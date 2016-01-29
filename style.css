@@ -104,11 +104,14 @@ td {
     overflow-x: hidden;
     overflow-y: auto;
     float:right;
-    background-color: black;
+    /*background-color: black;*/
     color: grey;
     z-index:4;
     font-size:50px;
-    border: 25px solid #4A2714;
+    /*border: 25px solid #4A2714;*/
+    border-width: 25px 25px 25px 25px;
+    border-image: url(assets/wood_texture.jpg) 5% 5% 5% 5% stretch;
+    background-image: url(assets/blackboard.jpg);
     line-height: 1em;
     font-family: 'Droid Sans Mono', monospace ;
 }
@@ -120,7 +123,48 @@ p:last-child {
 
 .lap {
     width: 98%;
-    margin-left: 2%;
+    margin-left: 3%;
+    margin-top: -2%;
     height: 10%;
     font-size: 0.95em;
+}
+
+#lapsText {
+    letter-spacing: .2em;
+    margin-top: 3%;
+    color: white;
+    font-weight: bold;
+}
+
+/*Responsiveness for mobile and window resizing*/
+@media only screen and (max-device-width: 768px) {
+    #blackboard {
+        clear: both;
+        height: 10em;
+        width: 70%;
+        margin-right: 16%;
+        text-align: center;
+    }
+    #stopwatch {
+        width: 100%;
+    }
+    h1 {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #blackboard {
+        clear: both;
+        height: 10em;
+        width: 70%;
+        margin-right: 16%;
+        text-align: center;
+    }
+    #stopwatch {
+        width: 100%;
+    }
+    h1 {
+        width: 100%;
+    }
 }

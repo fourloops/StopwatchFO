@@ -10,7 +10,7 @@ document.getElementById('stop').addEventListener('click', function(){
 document.getElementById('reset').addEventListener('click', function(){
     reset();
     document.getElementById('start').innerHTML = 'START';
-    blackboard.innerHTML = "";
+    blackboard.innerHTML = "<p class='lap' id='lapsText'>LAPS:</p>";
     document.getElementById('hours').classList.remove('blackText');
     document.getElementById('minutes').classList.remove('blackText');
     document.getElementById('seconds').classList.remove('blackText');
