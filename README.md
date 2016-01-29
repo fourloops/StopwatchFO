@@ -1,4 +1,5 @@
 # StopwatchFO
+Get the latest updates on the  [Fourloops blog](http://fourloops.github.io/FourLoopsBlog/index.html).
 
 ## What?
 This is a stopwatch app built by Francesco & Owen strictly using TDD.
