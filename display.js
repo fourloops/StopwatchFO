@@ -57,8 +57,6 @@ setInterval(function(){
                 elem.classList.add("blackText");
             } else if (elem.previousSibling.innerHTML == '00') {
                 elem.classList.remove("blackText");
-            // } else if (T.cSeconds === 0) {
-            //     elem.classList.remove("blackText");
             }
         }
 

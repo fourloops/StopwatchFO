@@ -85,6 +85,10 @@ button:focus {
     outline:0;
 }
 
+button:active {
+    background-color: grey;
+}
+
 td {
     padding: 0 20px;
     width: 25%;
