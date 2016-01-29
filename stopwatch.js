@@ -1,3 +1,5 @@
+
+// T object to store various variables
 var T = {
         startTime   :  0,
         stopTime    :  0,                         // watch out when adding stop-go function
@@ -11,6 +13,7 @@ var T = {
     },
     lapObj = { };
 
+// caltime function to get current time in centiseconds
 function caltime(){
     return Math.floor(Date.now()/10);
 }
@@ -30,6 +33,8 @@ function stop(){
     }
 }
 
+// updateTime function to calculate time elapsed and translate this into hours,
+// minutes, seconds, cSeconds as they will be displayed on the stopwatch.
 function updateTime(){
     T.elapsed = caltime() - T.startTime;
     T.hours = Math.floor((T.totElapsed + T.elapsed)/360000);
@@ -37,6 +42,7 @@ function updateTime(){
     T.seconds = Math.floor((T.totElapsed + T.elapsed - T.minutes*6000 - T.hours*360000)/100);
     T.cSeconds = (T.totElapsed + T.elapsed - T.seconds*100 - T.minutes*6000 - T.hours*360000);
 }
+
 function reset(){
     T.startTime  = 0;
     T.stopTime   = 0;
@@ -50,15 +56,17 @@ function reset(){
     lapObj       = {};
 }
 
+// numLaps returns the number of laps currently in the lap object.
 function numLaps (){
     return Object.keys(lapObj).length;
 }
 
+// Calculates current lap and puts it in correct format in lap object.
 function lapX(){
     var key  = "l" + ( numLaps()+1 ),
         subtractFrom = 0;
-    for(lap in lapObj){
-        subtractFrom += lapObj[lap].lapTime || 0;
+    for(var prop in lapObj){
+        subtractFrom += lapObj[prop].lapTime || 0;
     }
     var tlap  = T.totElapsed + T.elapsed - subtractFrom,
         tlapH = Math.floor( tlap / 360000),

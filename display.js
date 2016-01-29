@@ -1,4 +1,7 @@
+// blackboard variable should be accessible globally.
 var blackboard = document.getElementById('blackboard');
+
+// <------------ Connects buttons to their correct functions ---------->
 
 document.getElementById('start').addEventListener('click', start);
 document.getElementById('stop').addEventListener('click', function(){
@@ -33,6 +36,9 @@ document.getElementById('lap').addEventListener('click', function(){
         blackboard.scrollTop = blackboard.scrollHeight;
     }
 });
+
+// setInterval function runs the updateTime function ever 10ms, updates the
+// time values in the HTML and also makes the numbers visible if <1
 
 setInterval(function(){
         if(T.running){ updateTime(); }
