@@ -1,8 +1,8 @@
 # StopwatchFO
-Get the latest updates on the  [Fourloops blog](http://fourloops.github.io/FourLoopsBlog/index.html).
+
 
 ## What?
-This is a stopwatch app built by Francesco & Owen of FourLoops ([see our blog here](http://fourloops.github.io/FourLoopsBlog/)) strictly using TDD.
+This is a stopwatch app built by Francesco & Owen of FourLoops - get the latest updates on the  [Fourloops blog](http://fourloops.github.io/FourLoopsBlog/index.html). This project was build strictly using TDD.
 
 ## Why?
 In order to time things. And to practise our TDD.
