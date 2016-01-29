@@ -146,9 +146,11 @@ p:last-child {
     margin-top: 3%;
 }
 
-#lapstext {
+#lapsText {
     letter-spacing: .4em;
     margin-top: 3%;
+    color: #00207f;
+    font-weight: bold;
 }
 
 /*Stuff for mobile devices*/
