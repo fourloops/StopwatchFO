@@ -7,28 +7,28 @@
         <link href='https://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <div class="wrapper">
-            <section id="stopwatch">
-                <div id="display">
-                    <table>
-                        <tr id="time">
-                            <td id='hours'></td>
-                            <td id='minutes'></td>
-                            <td id='seconds'></td>
-                            <td id='cSeconds'></td>
-                        </tr>
-                        <tr id="buttons">
-                            <td><button id='start'>START</button></td>
-                            <td><button id='stop'>STOP</button></td>
-                            <td><button id='reset'>RESET</button></td>
-                            <td><button id='lap'>LAP</button></td>
-                        </tr>
-                    </table>
-                </div>
-            </section>
-            <section id="blackboard"></section>
-
-        </div>
+        <h1>STOPWATCH</h1>
+        <section id="stopwatch">
+            <div id="display">
+                <table>
+                    <tr id="time">
+                        <td id='hours'></td>
+                        <td id='minutes'></td>
+                        <td id='seconds'></td>
+                        <td id='cSeconds'></td>
+                    </tr>
+                    <tr id="buttons">
+                        <td><button id='start'>START</button></td>
+                        <td><button id='stop'>STOP</button></td>
+                        <td><button id='reset'>RESET</button></td>
+                        <td><button id='lap'>LAP</button></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section id="blackboard">
+            <p class="lap" id="lapstext">LAPS:</p>
+        </section>
         <script type="text/javascript" src="stopwatch.js"></script>
         <script type="text/javascript" src="display.js"></script>
     </body>
