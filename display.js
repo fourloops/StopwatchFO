@@ -22,7 +22,7 @@ document.getElementById('reset').addEventListener('click', function(){
 });
 document.getElementById('lap').addEventListener('click', function(){
     if(T.running){
-        lapX();
+        lap();
         var latestLap = lapObj[ "l" + numLaps() ],
             lapNode     = document.createElement("p"),
             hours       = ( latestLap.hours <10  ? "0":"" ) + latestLap.hours,
